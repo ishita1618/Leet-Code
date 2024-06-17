@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        int count = 0;
+        // Use a set to store the jewel characters for O(1) lookup time
+        unordered_set<char> jewelSet(jewels.begin(), jewels.end());
+        
+        for (char ch : stones) {
+            if (jewelSet.count(ch) > 0) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+};
