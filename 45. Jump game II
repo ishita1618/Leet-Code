@@ -1,0 +1,18 @@
+class Solution {
+public:
+int minJump(int i, vector<int>& nums, vector<int>& result){
+    if(i>=nums.size() -1){
+        return 0;
+    }
+    if(result[i] != -1) return result[i];
+int mini = 1e9;
+    for(int k=i+1; k<= i+ nums[i]; k++){
+mini = min(mini, 1 + minJump(k, nums, result));
+    }
+    return result[i] = mini;
+}
+    int jump(vector<int>& nums) {
+        vector<int> result(nums.size()+1, -1);
+        return minJump(0, nums, result);
+    }
+};
